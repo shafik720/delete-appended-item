@@ -7,7 +7,6 @@
     <title>Document</title>
     <style>
         body{
-            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -58,6 +57,7 @@
 
     <script>
         document.getElementById('postBtn').addEventListener('click',function(){
+            let commentArea = document.getElementById('comment-area');
             let userComments = document.getElementById('userComment');
 
             let paragraph = document.createElement('p');
@@ -77,10 +77,24 @@
                 let commentArea = document.getElementById('comment-area');
                 commentArea.appendChild(commentBox);
             }
-
-            userComments.value='';
-            
+            userComments.value='';   
+                     
+            // Making delete button work 
+            let applyDeletes = document.getElementsByClassName('deleteBtn');
+            for(let applyDelete of applyDeletes){
+            applyDelete.addEventListener('click',function(event){
+                event.target.parentNode.parentNode.removeChild(commentBox);
+                // console.log(event.target.parentNode.parentNode);
+            })
+        }
         })
+
+        // let applyDeletes = document.getElementsByClassName('deleteBtn');
+        // for(let applyDelete of applyDeletes){
+        //     applyDelete.addEventListener('click',function(){
+                
+        //     })
+        // }
     </script>
 </body>
 </html>
