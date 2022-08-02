@@ -5,8 +5,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{            
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            column-gap: 20px;
+            width: 80vw;
+        }
+        .input-area{
+            border: 3px solid #007ACC;
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            row-gap: 20px;
+        }
+        .comment-area{
+            border: 3px solid grey;
+            padding: 25px;
+            border-radius: 5px;
+        }
+        .comment-box{
+            border: 3px solid orange;
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <section class="container">
+        <div class="input-area">
+            <textarea name="" id="" cols="40" rows="5"></textarea>
+            <button type="button">Post Comment</button>
+        </div>
+        <div class="comment-area">
+            <div class="comment-box">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi labore maiores, earum quae sequi non eius sit ipsum reiciendis sapiente quaerat laborum praesentium dolore! Natus totam sapiente consequatur molestiae explicabo!</p>
+                <button type="button">Delete</button>
+            </div>
+        </div>
+    </section>
     
 </body>
 </html>
