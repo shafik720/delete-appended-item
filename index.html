@@ -89,12 +89,20 @@
         }
         })
 
-        // let applyDeletes = document.getElementsByClassName('deleteBtn');
-        // for(let applyDelete of applyDeletes){
-        //     applyDelete.addEventListener('click',function(){
-                
-        //     })
-        // }
+        let commentArea = document.getElementById('comment-area');
+        let commentBoxs = document.getElementsByClassName('comment-box');
+        for (let commentBox of commentBoxs){
+            let applyDeletes = document.getElementsByClassName('deleteBtn');
+            for(let applyDelete of applyDeletes){
+            applyDelete.addEventListener('click',function(event){
+                event.target.parentNode.parentNode.removeChild(commentBox);
+                // console.log(event.target.parentNode.parentNode);
+            })
+        }
+        }
+        
+
+
     </script>
 </body>
 </html>
