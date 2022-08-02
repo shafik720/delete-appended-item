@@ -13,10 +13,10 @@
             justify-content: center;
         }
         .container{            
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            column-gap: 20px;
-            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+            width: 40vw;
         }
         .input-area{
             border: 3px solid #007ACC;
@@ -28,7 +28,7 @@
             align-items: center;
             row-gap: 20px;
         }
-        .comment-area{
+        #comment-area{
             border: 3px solid grey;
             padding: 25px;
             border-radius: 5px;
@@ -37,22 +37,50 @@
             border: 3px solid orange;
             padding: 15px;
             border-radius: 5px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <section class="container">
         <div class="input-area">
-            <textarea name="" id="" cols="40" rows="5"></textarea>
-            <button type="button">Post Comment</button>
+            <textarea name="" id="userComment" cols="40" rows="5"></textarea>
+            <button id="postBtn" type="button">Post Comment</button>
         </div>
-        <div class="comment-area">
+        <div id="comment-area">
             <div class="comment-box">
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi labore maiores, earum quae sequi non eius sit ipsum reiciendis sapiente quaerat laborum praesentium dolore! Natus totam sapiente consequatur molestiae explicabo!</p>
-                <button type="button">Delete</button>
+                <button class="deleteBtn" type="button">Delete</button>
             </div>
         </div>
     </section>
     
+
+    <script>
+        document.getElementById('postBtn').addEventListener('click',function(){
+            let userComments = document.getElementById('userComment');
+
+            let paragraph = document.createElement('p');
+            paragraph.innerText = userComments.value;
+
+            let commentBox = document.createElement('div');
+            commentBox.classList.add('comment-box');
+            commentBox.appendChild(paragraph);
+            let deleteBtn = document.createElement('button');
+            deleteBtn.classList.add('deleteBtn');
+            deleteBtn.innerText = 'Delete';
+            commentBox.appendChild(deleteBtn);
+
+            if(userComments.value==''){
+
+            }else{
+                let commentArea = document.getElementById('comment-area');
+                commentArea.appendChild(commentBox);
+            }
+
+            userComments.value='';
+            
+        })
+    </script>
 </body>
 </html>
